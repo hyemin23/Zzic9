@@ -1,25 +1,20 @@
 {
   "compilerOptions": {
-      "module": "esnext", //최신 모듈 사용 (import export)
-      "moduleResolution": "node",// node가 해석할 수 있도록
-      "esModuleInterop": true,    // import시 as 없이 가능 
-      "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true,
-      "allowJs": true,
-      "sourceMap": true,  
-      "lib" : ["ES2020","DOM"],
-      "target": "es5",  // lib 에서 ES2020으로 작성하더라도 es5로 변환하겠다는 의미
-      "jsx" : "react",
-      "outDir": "dist",
-      "strict": true,
-      "baseUrl": ".",
-      "paths": {
-          "@hooks/*":["hooks/*"]
-          ,"@components/*" : ["components/*"]
-          ,"@layouts/*" : ["layouts/*"]
-          ,"@pages/*" : ["pages/*"]
-          ,"@utils/*" : ["utils/*"]
-          ,"@typings/*" : ["typings/*"]
-      }
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
   },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

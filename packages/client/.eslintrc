@@ -1,6 +1,0 @@
-
-{
-    // prettier 추천 설정을 따르겠다는 의미.
-    "extends": ["plugin:prettier/recommended"]
-    ,"parser": "@typescript-eslint/parser"
-}
