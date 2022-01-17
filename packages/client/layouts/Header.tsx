@@ -1,4 +1,16 @@
 import React from "react";
+import styled from "styled-components";
+
+// const Container = styled.div<BaseProps>`
+//   ${BaseMarginBottom}
+// `;
+
+// const S = {
+//   Container,
+//   MainTitle,
+//   Strong,
+//   MainDescription,
+// };
 
 const Header: React.FC = () => {
   return (
