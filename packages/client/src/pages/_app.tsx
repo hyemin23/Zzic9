@@ -2,8 +2,8 @@ import { NextUIProvider } from "@nextui-org/react";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import styled, { ThemeProvider, css } from "styled-components";
 import Head from "next/head";
-import theme, { windowSize } from "styles/theme";
-import GlobalStyle from "styles/globals";
+import theme, { windowSize } from "@src/styles/theme";
+import GlobalStyle from "@src/styles/globals";
 
 const Container = styled.div`
   background-color: #ffff;
@@ -23,12 +23,12 @@ const Container = styled.div`
 
 function MyApp({ Component, pageProps }: AppProps) {
   // 서비스 워커 등록
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      // sw.js 등록
-      navigator.serviceWorker.register("");
-    });
-  }
+  // if ("serviceWorker" in navigator) {
+  //   window.addEventListener("load", () => {
+  //     // sw.js 등록
+  //     navigator.serviceWorker.register("");
+  //   });
+  // }
   return (
     <>
       <Head>
@@ -41,9 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <NextUIProvider>
-          <Container>
-            <Component {...pageProps} />
-          </Container>
+          <Component {...pageProps} />
         </NextUIProvider>
       </ThemeProvider>
     </>

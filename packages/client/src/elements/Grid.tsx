@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface gridType {
-  key?: string | number;
+  className?: string | null;
   children?: any;
   id?: string;
   margin?: string | null;
@@ -118,7 +118,7 @@ const GridBox = styled.div<any>`
 
 const Grid = (props: gridType) => {
   const {
-    key = null,
+    className = "",
     children = null,
     _onClick,
     id = "",
@@ -170,7 +170,6 @@ const Grid = (props: gridType) => {
   } = props;
 
   const styles = {
-    key,
     id,
     margin,
     padding,
@@ -219,7 +218,7 @@ const Grid = (props: gridType) => {
     pointerEvents,
   };
   return (
-    <GridBox {...styles} onClick={_onClick} id={id} key={key}>
+    <GridBox {...styles} onClick={_onClick} id={id} className={className}>
       {children}
     </GridBox>
   );
