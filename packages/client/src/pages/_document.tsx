@@ -6,26 +6,51 @@ import Document, {
   DocumentContext,
 } from "next/document";
 import { CssBaseline } from "@nextui-org/react";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
-    return {
-      ...initialProps,
-      styles: <>{initialProps.styles}</>,
-    };
+    const sheet = new ServerStyleSheet();
+    const originalRenderPage = ctx.renderPage;
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        });
+
+      const initialProps = await Document.getInitialProps(ctx);
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        ),
+      };
+    } finally {
+      sheet.seal();
+    }
   }
 
   render() {
     return (
-      <Html lang="en">
-        <Head title="GoToRedLight">{CssBaseline.flush()}</Head>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta charSet="UTF-8" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1.0,maximum-scale=1.0"
-        />
+      <Html lang="ko">
+        <Head title="찍구">
+          {CssBaseline.flush()}
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta property="og:title" content="찍구" />
+          <meta
+            property="og:description"
+            name="description"
+            content="어디서든 쉽게 직구하자 찍구 ! "
+          />
+          <meta name="theme-color" content="#000000" />
+        </Head>
+
         <body>
           <Main />
           <NextScript />
