@@ -1,25 +1,10 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { AppProps } from "next/dist/shared/lib/router/router";
-import styled, { ThemeProvider, css } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import Head from "next/head";
-import theme, { windowSize } from "@src/styles/theme";
+import theme from "@src/styles/theme";
 import GlobalStyle from "@src/styles/globals";
-
-const Container = styled.div`
-  background-color: #ffff;
-  width: ${windowSize.mobile};
-  margin: 0 auto;
-  height: 100%;
-
-  ${({ theme: defaultTheme }) => {
-    const { window } = defaultTheme;
-    return css`
-      ${window.mobile} {
-        width: 100vw;
-      }
-    `;
-  }}
-`;
+import GlobalFont from "@src/styles/fonts";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // 서비스 워커 등록
@@ -40,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <GlobalFont />
         <NextUIProvider>
           <Component {...pageProps} />
         </NextUIProvider>

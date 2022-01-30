@@ -14,7 +14,7 @@ const theme: DefaultTheme = {
   color: {
     primary: "#fc1150", // custom
     secondary: "#ea0845", // custom
-    point: "#F95E66", // custom
+    point: "#b181ff", // custom
     black: "#000000",
     gray5: "#444444",
     gray4: "#a6a29d",
