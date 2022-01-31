@@ -49,11 +49,12 @@ const AppTitleComponent = ({ mb = "0" }: Props) => {
   return (
     <Container mb={mb}>
       <MainTitle>
-        재능교환?
-        <br />A piece of<S.Strong>Cake</S.Strong>이지
+        직구할 땐?
+        <br />
+        <S.Strong>찍 - ! 구 (Zzic 9)</S.Strong>
       </MainTitle>
       <S.MainDescription>
-        우리 학교 재능 공유 플랫폼<i>!</i>
+        직구가 어려운 사람들 모두 모여라<i>!</i>
       </S.MainDescription>
     </Container>
   );

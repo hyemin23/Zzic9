@@ -46,30 +46,27 @@ const IconWrapper = styled.a`
 
 const S = { Container, Title };
 const TitleHeaderComponent = ({ title = "", onBack = null }: any) => {
-  console.log("title : ", title);
   const router = useRouter();
   const back = useCallback(
     (e) => {
-      console.log("백 버튼 누름");
       console.log(document.referrer);
       e.stopPropagation();
-      router.back();
-      // if (!!onBack) {
-      //   onBack();
-      // }
-      // // 정상적인 접근이 아니면 팅궈내기
-      // else if (
-      //   document.referrer &&
-      //   document.referrer.indexOf(
-      //     String(process.env.NEXT_PUBLIC_DOMAIN_NAME),
-      //   ) !== -1
-      // ) {
-      //   console.log("정상적인 접근이 아님");
-      //   window.history.back();
-      // } else {
-      //   console.log("나머지  els 상호아");
-      //   router.push("/");
-      // }
+      if (!!onBack) {
+        onBack();
+      }
+      // 정상적인 접근이 아니면 팅궈내기
+      else if (
+        document.referrer &&
+        document.referrer.indexOf(
+          String(process.env.NEXT_PUBLIC_DOMAIN_NAME),
+        ) !== -1
+      ) {
+        console.log("정상적인 접근이 아님");
+        window.history.back();
+      } else {
+        console.log("else");
+        router.push("/");
+      }
     },
     [router, onBack],
   );

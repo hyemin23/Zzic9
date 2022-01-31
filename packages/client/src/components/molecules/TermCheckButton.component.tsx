@@ -2,14 +2,12 @@ import { BaseProps, BaseStyleProps } from "@src/styles/common";
 import theme from "@src/styles/theme";
 import React from "react";
 import styled from "styled-components";
-import { Button } from "../atoms/Button";
 import CheckIcon from "../atoms/Check.icon";
 import SmallRightArrowIcon from "../atoms/SmallRightArrow.icon";
 import { TextButton } from "../atoms/TextButton";
 
 export const TermButtonContentsWrapper = styled.div<BaseProps>`
   ${BaseStyleProps};
-
   display: flex;
   justify-content: flex-start;
   alignitems: center;
