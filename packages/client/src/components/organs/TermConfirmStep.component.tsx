@@ -13,12 +13,6 @@ import TermCheckButtonComponent, {
 } from "../molecules/TermCheckButton.component";
 import TermPopupComponent from "./TermPopup.component";
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  padding: ${Padding.page};
-`;
-
 const TermConfirmStepComponent = ({ confirmed, setConfirmed }: any) => {
   // 이용약관
   const [
@@ -68,7 +62,7 @@ const TermConfirmStepComponent = ({ confirmed, setConfirmed }: any) => {
     }
   }, [confirmed, setConfirmed, privacyConfirmed, termConfirmed]);
   return (
-    <Container>
+    <div>
       <TermPopupComponent
         title="이용약관"
         visible={termVisible}
@@ -115,7 +109,7 @@ const TermConfirmStepComponent = ({ confirmed, setConfirmed }: any) => {
         setPopupVisible={setPrivacyVisible}
         termName="(필수) 찍구 개인정보처리방침"
       />
-    </Container>
+    </div>
   );
 };
 
