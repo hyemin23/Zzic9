@@ -4,6 +4,8 @@ export enum SignupStep {
   USER_INFO,
   // 프로필
   PROFILE_INPUT,
+  // 회원가입 완료
+  COMPLETE_SIGNUP,
 }
 
 export enum PathCategory {
@@ -23,4 +25,8 @@ export const JoinPathLabel = {
   [PathCategory.SEARCH_CAFE]: "카페",
   [PathCategory.SEARCH_HUMAN]: "지인 추천",
   [PathCategory.SEARCH_AD]: "광고",
+};
+
+export const FolderPathType = {
+  PROFILE: "profile",
 };

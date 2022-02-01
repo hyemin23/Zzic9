@@ -1,5 +1,31 @@
 import styled from "styled-components";
-import theme, { Padding, windowSize } from "../theme";
+
+// styles
+import theme, { Padding, windowSize } from "@src/styles/theme";
+import { BaseProps, BaseStyleProps } from "@src/styles/common";
+
+const Container = styled.div<BaseProps>`
+  ${BaseStyleProps};
+  background-color: ${theme.color.point};
+  height: 100vh;
+
+  padding-top: 20vh;
+
+  @media (max-height: 670px) {
+    padding-top: 14vh;
+  }
+  padding-left: ${Padding.pageX};
+  padding-right: ${Padding.pageX};
+`;
+
+const ContentsWrap = styled.div<BaseProps>`
+  ${BaseStyleProps};
+
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
 
 const BottomWrap = styled.div`
   position: fixed;
@@ -8,17 +34,20 @@ const BottomWrap = styled.div`
   right: ${Padding.pageX};
 
   ${theme.window.tab} {
-    max-width: 414px;
-    width: calc(${windowSize.mobile} - ${Padding.pageX} * 8);
+    width: calc(${windowSize.mobile} - ${Padding.pageX} * 2);
     left: auto;
     right: auto;
   }
 `;
 
 export const GuestMain = {
+  Container,
+  ContentsWrap,
   BottomWrap,
 };
 
 export default {
+  Container,
+  ContentsWrap,
   BottomWrap,
 };
