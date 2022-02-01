@@ -1,9 +1,11 @@
 import { Button } from "@src/components/atoms/Button";
-import LeftArrowIcon from "@src/components/atoms/LeftArrow.icon";
+
 import { TextButton } from "@src/components/atoms/TextButton";
+import LeftArrowIcon from "@src/components/icon/LeftArrow.icon";
 import TitleHeaderComponent from "@src/components/molecules/TitleHeader.component";
 import BasicInfoStepComponent from "@src/components/organs/BasicInfoStep.component";
 import ProfileStepComponent from "@src/components/organs/ProfileStep.component";
+import SignupCompletedStepComponent from "@src/components/organs/SignupCompletedStepComponent";
 import TermConfirmStepComponent from "@src/components/organs/TermConfirmStep.component";
 import { SignupStep } from "@src/constant/enum.constant";
 import { SignupTitleMessages } from "@src/constant/message.constant";
@@ -18,6 +20,7 @@ interface SignupObjectType {
   [SignupStep.TERM_CONFIRM]: boolean;
   [SignupStep.USER_INFO]: boolean;
   [SignupStep.PROFILE_INPUT]: boolean;
+  [SignupStep.COMPLETE_SIGNUP]: boolean;
 }
 
 export type SignupTemplateProps = {
@@ -115,8 +118,10 @@ const SignupPageTemplate = ({
         )}
 
         {step === SignupStep.USER_INFO && <BasicInfoStepComponent />}
-
         {step === SignupStep.PROFILE_INPUT && <ProfileStepComponent />}
+        {step === SignupStep.COMPLETE_SIGNUP && (
+          <SignupCompletedStepComponent />
+        )}
       </Grid>
 
       {SignupTitleMessages[step].button && (
