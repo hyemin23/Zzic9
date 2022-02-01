@@ -1,8 +1,8 @@
 import { NextUIProvider } from "@nextui-org/react";
 import { AppProps } from "next/dist/shared/lib/router/router";
-import { ThemeProvider } from "styled-components";
+import styled, { css, ThemeProvider } from "styled-components";
 import Head from "next/head";
-import theme from "@src/styles/theme";
+import theme, { windowSize } from "@src/styles/theme";
 import GlobalStyle from "@src/styles/globals";
 import GlobalFont from "@src/styles/fonts";
 
@@ -14,6 +14,29 @@ function MyApp({ Component, pageProps }: AppProps) {
   //     navigator.serviceWorker.register("");
   //   });
   // }
+
+  const Container = styled.div`
+    ${({ theme: defaultTheme }) => css`
+      background-color: ${defaultTheme.color.gray0};
+    `}
+  `;
+
+  const Content = styled.div`
+    background-color: #fff;
+    height: 100vh;
+    margin: 0 auto;
+    width: ${windowSize.mobile};
+
+    ${({ theme: defaultTheme }) => {
+      const { window } = defaultTheme;
+      return css`
+        ${window.mobile} {
+          width: 100vw;
+        }
+      `;
+    }}
+  `;
+
   return (
     <>
       <Head>
@@ -26,9 +49,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <GlobalFont />
-        <NextUIProvider>
-          <Component {...pageProps} />
-        </NextUIProvider>
+        <Container>
+          <Content>
+            <NextUIProvider>
+              <Component {...pageProps} />
+            </NextUIProvider>
+          </Content>
+        </Container>
       </ThemeProvider>
     </>
   );

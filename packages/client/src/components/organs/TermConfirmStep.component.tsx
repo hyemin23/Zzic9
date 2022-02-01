@@ -1,12 +1,10 @@
-import Grid from "@src/elements/Grid";
 import useVisibleHook from "@src/hooks/useVisible.hook";
-import theme, { Padding } from "@src/styles/theme";
+import theme from "@src/styles/theme";
 import React, { useCallback, useEffect } from "react";
-import styled from "styled-components";
 import { Button } from "../atoms/Button";
-import CheckIcon from "../atoms/Check.icon";
 import Privacy from "../atoms/terms/Privacy";
 import Term from "../atoms/terms/Term";
+import CheckIcon from "../icon/Check.icon";
 import TermCheckButtonComponent, {
   CircleButton,
   TermButtonContentsWrapper,

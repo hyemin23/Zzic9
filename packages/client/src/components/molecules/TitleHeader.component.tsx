@@ -7,7 +7,7 @@ import theme, {
 import { useRouter } from "next/router";
 import React, { useCallback } from "react";
 import styled from "styled-components";
-import LeftArrowIcon from "../atoms/LeftArrow.icon";
+import LeftArrowIcon from "../icon/LeftArrow.icon";
 
 const Container = styled.div`
   display :flex;

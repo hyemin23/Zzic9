@@ -2,9 +2,10 @@ import { BaseProps, BaseStyleProps } from "@src/styles/common";
 import theme from "@src/styles/theme";
 import React from "react";
 import styled from "styled-components";
-import CheckIcon from "../atoms/Check.icon";
-import SmallRightArrowIcon from "../atoms/SmallRightArrow.icon";
+
+import SmallRightArrowIcon from "../icon/SmallRightArrow.icon";
 import { TextButton } from "../atoms/TextButton";
+import CheckIcon from "../icon/Check.icon";
 
 export const TermButtonContentsWrapper = styled.div<BaseProps>`
   ${BaseStyleProps};
